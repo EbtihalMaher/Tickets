@@ -5,9 +5,8 @@ namespace App\Http\Resources\Api\V1;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class TicketResource extends JsonResource
+class UserResource extends JsonResource
 {
-    // public static $wrap = 'ticket';
     /**
      * Transform the resource into an array.
      *
@@ -16,17 +15,16 @@ class TicketResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            'type' => 'ticket',
+            'type' => 'user',
             'id' => $this->id,
             'attributes' => [
-                'title' => $this->title,
-                'description' => $this->when(
-                    $request->routeIs('tickets.show'),
-                    $this->description
-                ),
-                'status' => $this->status,
-                'created_at' => $this->created_at,
-                'updated_at' => $this->updated_at,
+                'name' => $this->name,
+                'email' => $this->email,
+                $this->mergeWhen($request->routeIs('users.*'),[
+                    'emailVerifiedAt' => $this->email_verified_at,
+                    'createdAt' => $this->created_at,
+                    'updatedAt' => $this->updated_at,
+                ]),
             ],
             'links' => [
                 ['self' => route('tickets.show',['ticket' => $this->id])]
@@ -41,9 +39,6 @@ class TicketResource extends JsonResource
                         ['self' => 'todo']
                     ],
                 ],
-            ],
-            'includes' => [
-                new UserResource($this->user),
             ],
         ];
     }
