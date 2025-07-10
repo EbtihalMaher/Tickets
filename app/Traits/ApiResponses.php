@@ -3,7 +3,7 @@
 namespace App\Traits;
 
 trait ApiResponses{
-    protected function ok($message, $data){
+    protected function ok($message, $data = []){
         return $this->success($message,$data , 200);
     }
 
