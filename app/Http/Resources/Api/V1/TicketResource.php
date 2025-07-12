@@ -43,7 +43,7 @@ class TicketResource extends JsonResource
                 ],
             ],
             'includes' => [
-                new UserResource($this->whenLoaded('user')),
+                new UserResource($this->whenLoaded('author')),
             ],
         ];
     }
