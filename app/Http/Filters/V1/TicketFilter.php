@@ -3,6 +3,13 @@
 namespace App\Http\Filters\V1;
 
 class TicketFilter extends QueryFilter {
+    protected $sortable = [
+        'title',
+        'status',
+        'createdAt' => 'created_at',
+        'updatedAt' => 'updated_at'
+    ];
+    
     public function include($value) {
         return $this->builder->with($value);
     }
