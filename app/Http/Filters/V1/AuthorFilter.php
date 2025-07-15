@@ -15,7 +15,7 @@ class AuthorFilter extends QueryFilter {
     }
 
     public function id($value) {
-        return $this->builder->whereIn('id', explode(',', $value));
+        return $this->builder->whereIn('users.id', explode(',', $value));
     }
 
     public function email($value) {

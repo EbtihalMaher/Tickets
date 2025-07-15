@@ -79,8 +79,8 @@ class TicketController extends ApiController
             $ticket = Ticket::findOrFail($ticket_id);
 
             if ($this->isAble('replace', $ticket)) {
-                $ticket->delete();
-                return new TicketResource(Ticket::create($request->mappedAttributes()));
+                $ticket->update($request->mappedAttributes());
+                return new TicketResource($ticket);
             }
 
             return $this->error('You Are Not Authorized To Update This Ticket', 401);

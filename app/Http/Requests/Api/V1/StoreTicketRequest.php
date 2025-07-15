@@ -24,7 +24,7 @@ class StoreTicketRequest extends BaseTicketRequest
     {
         $authorIdAttribute = $this->routeIs('tickets.store') ? 'data.relationships.author.data.id' : 'author';
         $user = $this->user();
-        $authorRule = 'required|integer|exists:users';
+        $authorRule = 'required|integer|exists:users,id';
 
         $rules = [
             'data.attributes.title' => 'required|string',
