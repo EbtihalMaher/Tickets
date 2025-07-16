@@ -19,8 +19,9 @@ class BaseTicketRequest extends FormRequest
         $attributesToUpdate = [];
 
         foreach ($attributeMap as $key => $attribute) {
+            $value = data_get($this->all(), $key);
             if ($this->has($key)) {
-                $attributesToUpdate[$attribute] = $this->input($key);
+                $attributesToUpdate[$attribute] = $value;
             }
         }
 

@@ -25,12 +25,27 @@ class ApiController extends Controller
         return in_array(strtolower($relationship), $includeValues);
     }
 
-    public function isAble($ability, $targetModel) : bool {
+    // public function isAble($ability, $targetModel) : bool {
+    //     try {
+    //         $this->authorize($ability, [$targetModel, $this->policyClass]);
+    //         return true;
+    //     } catch (AuthorizationException $exception) {
+    //         return false;
+    //     }
+    // }
+
+    public function isAble($ability, $targetModel)
+    {
         try {
             $this->authorize($ability, [$targetModel, $this->policyClass]);
             return true;
         } catch (AuthorizationException $exception) {
-            return false;
+            response()->json([
+                'status' => 403,
+                'message' => 'Forbidden'
+            ], 403)->send();
+            exit;
         }
     }
+
 }
