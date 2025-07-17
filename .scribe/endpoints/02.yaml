@@ -1,0 +1,214 @@
+name: 'Managing Tickets'
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/v1/tickets
+    metadata:
+      groupName: 'Managing Tickets'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Get all tickets'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters:
+      sort:
+        name: sort
+        description: 'Data field(s) to sort by. Seperate multiple fields with a comma. Prefix with - to sort descending.'
+        required: false
+        example: 'sort=title,-createdAT'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      'filter[status]':
+        name: 'filter[status]'
+        description: 'Filter by status code: A, H, X, C.'
+        required: false
+        example: null
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      'filter[title]':
+        name: 'filter[title]'
+        description: 'Filter by title. Wildcards are supported.'
+        required: false
+        example: '*fix*'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanQueryParameters:
+      sort: 'sort=title,-createdAT'
+      'filter[title]': '*fix*'
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"data":[{"type":"ticket","id":3,"attributes":{"title":"Patch This title","status":"H","created_at":"2025-07-16T06:51:59.000000Z","updated_at":"2025-07-16T09:41:20.000000Z"},"links":{"self":"http:\/\/localhost\/api\/v1\/tickets\/3"},"relationships":{"author":{"data":{"type":"user","id":6},"links":{"self":"http:\/\/localhost\/api\/v1\/authors\/6"}}},"includes":[]},{"type":"ticket","id":5,"attributes":{"title":"ut totam ducimus","status":"C","created_at":"2025-07-16T06:51:59.000000Z","updated_at":"2025-07-16T06:51:59.000000Z"},"links":{"self":"http:\/\/localhost\/api\/v1\/tickets\/5"},"relationships":{"author":{"data":{"type":"user","id":8},"links":{"self":"http:\/\/localhost\/api\/v1\/authors\/8"}}},"includes":[]},{"type":"ticket","id":6,"attributes":{"title":"magni quas sint","status":"H","created_at":"2025-07-16T06:51:59.000000Z","updated_at":"2025-07-16T06:51:59.000000Z"},"links":{"self":"http:\/\/localhost\/api\/v1\/tickets\/6"},"relationships":{"author":{"data":{"type":"user","id":6},"links":{"self":"http:\/\/localhost\/api\/v1\/authors\/6"}}},"includes":[]},{"type":"ticket","id":7,"attributes":{"title":"ducimus quia ut","status":"C","created_at":"2025-07-16T06:51:59.000000Z","updated_at":"2025-07-16T06:51:59.000000Z"},"links":{"self":"http:\/\/localhost\/api\/v1\/tickets\/7"},"relationships":{"author":{"data":{"type":"user","id":9},"links":{"self":"http:\/\/localhost\/api\/v1\/authors\/9"}}},"includes":[]},{"type":"ticket","id":8,"attributes":{"title":"molestias maiores eos","status":"A","created_at":"2025-07-16T06:51:59.000000Z","updated_at":"2025-07-16T06:51:59.000000Z"},"links":{"self":"http:\/\/localhost\/api\/v1\/tickets\/8"},"relationships":{"author":{"data":{"type":"user","id":10},"links":{"self":"http:\/\/localhost\/api\/v1\/authors\/10"}}},"includes":[]},{"type":"ticket","id":9,"attributes":{"title":"veniam reiciendis consequatur","status":"C","created_at":"2025-07-16T06:51:59.000000Z","updated_at":"2025-07-16T06:51:59.000000Z"},"links":{"self":"http:\/\/localhost\/api\/v1\/tickets\/9"},"relationships":{"author":{"data":{"type":"user","id":5},"links":{"self":"http:\/\/localhost\/api\/v1\/authors\/5"}}},"includes":[]},{"type":"ticket","id":10,"attributes":{"title":"id quibusdam non","status":"X","created_at":"2025-07-16T06:51:59.000000Z","updated_at":"2025-07-16T06:51:59.000000Z"},"links":{"self":"http:\/\/localhost\/api\/v1\/tickets\/10"},"relationships":{"author":{"data":{"type":"user","id":10},"links":{"self":"http:\/\/localhost\/api\/v1\/authors\/10"}}},"includes":[]},{"type":"ticket","id":11,"attributes":{"title":"quod sed aut","status":"A","created_at":"2025-07-16T06:51:59.000000Z","updated_at":"2025-07-16T06:51:59.000000Z"},"links":{"self":"http:\/\/localhost\/api\/v1\/tickets\/11"},"relationships":{"author":{"data":{"type":"user","id":3},"links":{"self":"http:\/\/localhost\/api\/v1\/authors\/3"}}},"includes":[]},{"type":"ticket","id":12,"attributes":{"title":"praesentium harum sequi","status":"C","created_at":"2025-07-16T06:51:59.000000Z","updated_at":"2025-07-16T06:51:59.000000Z"},"links":{"self":"http:\/\/localhost\/api\/v1\/tickets\/12"},"relationships":{"author":{"data":{"type":"user","id":3},"links":{"self":"http:\/\/localhost\/api\/v1\/authors\/3"}}},"includes":[]},{"type":"ticket","id":13,"attributes":{"title":"omnis perferendis harum","status":"C","created_at":"2025-07-16T06:51:59.000000Z","updated_at":"2025-07-16T06:51:59.000000Z"},"links":{"self":"http:\/\/localhost\/api\/v1\/tickets\/13"},"relationships":{"author":{"data":{"type":"user","id":4},"links":{"self":"http:\/\/localhost\/api\/v1\/authors\/4"}}},"includes":[]},{"type":"ticket","id":14,"attributes":{"title":"officiis non ea","status":"X","created_at":"2025-07-16T06:51:59.000000Z","updated_at":"2025-07-16T06:51:59.000000Z"},"links":{"self":"http:\/\/localhost\/api\/v1\/tickets\/14"},"relationships":{"author":{"data":{"type":"user","id":9},"links":{"self":"http:\/\/localhost\/api\/v1\/authors\/9"}}},"includes":[]},{"type":"ticket","id":16,"attributes":{"title":"nihil nostrum vel","status":"H","created_at":"2025-07-16T06:51:59.000000Z","updated_at":"2025-07-16T06:51:59.000000Z"},"links":{"self":"http:\/\/localhost\/api\/v1\/tickets\/16"},"relationships":{"author":{"data":{"type":"user","id":3},"links":{"self":"http:\/\/localhost\/api\/v1\/authors\/3"}}},"includes":[]},{"type":"ticket","id":17,"attributes":{"title":"assumenda itaque est","status":"A","created_at":"2025-07-16T06:51:59.000000Z","updated_at":"2025-07-16T06:51:59.000000Z"},"links":{"self":"http:\/\/localhost\/api\/v1\/tickets\/17"},"relationships":{"author":{"data":{"type":"user","id":8},"links":{"self":"http:\/\/localhost\/api\/v1\/authors\/8"}}},"includes":[]},{"type":"ticket","id":18,"attributes":{"title":"necessitatibus doloribus et","status":"X","created_at":"2025-07-16T06:51:59.000000Z","updated_at":"2025-07-16T06:51:59.000000Z"},"links":{"self":"http:\/\/localhost\/api\/v1\/tickets\/18"},"relationships":{"author":{"data":{"type":"user","id":3},"links":{"self":"http:\/\/localhost\/api\/v1\/authors\/3"}}},"includes":[]},{"type":"ticket","id":19,"attributes":{"title":"voluptatem omnis eum","status":"H","created_at":"2025-07-16T06:51:59.000000Z","updated_at":"2025-07-16T06:51:59.000000Z"},"links":{"self":"http:\/\/localhost\/api\/v1\/tickets\/19"},"relationships":{"author":{"data":{"type":"user","id":4},"links":{"self":"http:\/\/localhost\/api\/v1\/authors\/4"}}},"includes":[]}],"links":{"first":"http:\/\/localhost\/api\/v1\/tickets?page=1","last":"http:\/\/localhost\/api\/v1\/tickets?page=7","prev":null,"next":"http:\/\/localhost\/api\/v1\/tickets?page=2"},"meta":{"current_page":1,"from":1,"last_page":7,"links":[{"url":null,"label":"&laquo; Previous","active":false},{"url":"http:\/\/localhost\/api\/v1\/tickets?page=1","label":"1","active":true},{"url":"http:\/\/localhost\/api\/v1\/tickets?page=2","label":"2","active":false},{"url":"http:\/\/localhost\/api\/v1\/tickets?page=3","label":"3","active":false},{"url":"http:\/\/localhost\/api\/v1\/tickets?page=4","label":"4","active":false},{"url":"http:\/\/localhost\/api\/v1\/tickets?page=5","label":"5","active":false},{"url":"http:\/\/localhost\/api\/v1\/tickets?page=6","label":"6","active":false},{"url":"http:\/\/localhost\/api\/v1\/tickets?page=7","label":"7","active":false},{"url":"http:\/\/localhost\/api\/v1\/tickets?page=2","label":"Next &raquo;","active":false}],"path":"http:\/\/localhost\/api\/v1\/tickets","per_page":15,"to":15,"total":94}}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 8|pHaBI10Rr6TuguJ98CWmEJx8EbG3mCDxV6okkJ0Kac406b90'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/tickets
+    metadata:
+      groupName: 'Managing Tickets'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Create a Ticket'
+      description: 'Creates a new ticket. Users can only create tickets for themselves. Managers can create tickets for any user.'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      data:
+        name: data
+        description: ''
+        required: true
+        example: []
+        type: object
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      data.attributes:
+        name: data.attributes
+        description: ''
+        required: true
+        example: []
+        type: object
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      data.attributes.title:
+        name: data.attributes.title
+        description: "The ticket's title."
+        required: true
+        example: null
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      data.attributes.description:
+        name: data.attributes.description
+        description: "The ticket's description (method)."
+        required: true
+        example: No-example
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      data.attributes.status:
+        name: data.attributes.status
+        description: "The ticket's status (method)."
+        required: false
+        example: null
+        type: string
+        enumValues:
+          - A
+          - C
+          - H
+          - X
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      data.relationships:
+        name: data.relationships
+        description: ''
+        required: true
+        example: []
+        type: object
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      data.relationships.author:
+        name: data.relationships.author
+        description: ''
+        required: true
+        example: []
+        type: object
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      data.relationships.author.data:
+        name: data.relationships.author.data
+        description: ''
+        required: true
+        example: []
+        type: object
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      data.relationships.author.data.id:
+        name: data.relationships.author.data.id
+        description: 'The author id.'
+        required: true
+        example: null
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      data:
+        attributes:
+          title: null
+          description: No-example
+        relationships:
+          author:
+            data:
+              id: null
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 8|pHaBI10Rr6TuguJ98CWmEJx8EbG3mCDxV6okkJ0Kac406b90'
+    controller: null
+    method: null
+    route: null
+    custom: []
